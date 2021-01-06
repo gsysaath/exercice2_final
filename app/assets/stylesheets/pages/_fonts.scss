@@ -1,0 +1,26 @@
+@import url('http://fonts.cdnfonts.com/css/din-pro-cond');
+
+body {
+  font-family: 'DIN Pro Regular', sans-serif;
+  margin: 0;
+}
+
+label , input {
+  font-size: 20px;
+}
+
+
+.container {
+  height: 100%;
+  width: 50%;
+  margin: 50px auto;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.hidden {
+  display: none;
+}
+

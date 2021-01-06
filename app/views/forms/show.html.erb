@@ -1,0 +1,23 @@
+<div class="container">
+  <% if @right %>
+    <h1 class="text-center">
+      Votre réclamation n'est malheureusement pas valable... <br>
+      Vous pouvez si vous le souhaiter <br>nous envoyer un mail et nous <br> étudierons votre dossier.
+    </h1>
+    <h3 class="text-center text-primary mt-5">Contact: georges.sysaath@gmail.com</h3>
+  <% else %>
+    <h1>
+      Excellent! Vous avez droit à <%= @montant %>€ !
+    </h1>
+    <h5>Veuillez remplir ce formulaire afin d'être recontacté au plus vite!</h5>
+    <%= simple_form_for @user do |f| %>
+    <div class="name_wrapper">
+      <%= f.input :last_name, label: "Nom", placeholder: "Dupont", input_html: {class: 'name-box'}, error: 'Indiquez votre nom svp' %>
+      <%= f.input :first_name, label: "Prénom", placeholder: "Martin", input_html: {class: 'name-box'},error: 'Indiquez votre prenom svp' %>
+    </div>
+    <%= f.input :email, label: "Votre adresse mail", placeholder: "email@gmail.com", input_html: {class: 'name-box w-50'}, error: 'Une adresse mail valide' %>
+    <%= f.input :phone_number, label: "Numéro de téléphone", placeholder: "0613880488", input_html: {class: 'name-box w-50'}, hint: 'Non obligatoire mais plus facile pour vous recontacter!' %>
+    <%= f.button :submit, "Valider vos coordonées", class: "button mt-2" %>
+    <% end %>
+  <% end %>
+</div>

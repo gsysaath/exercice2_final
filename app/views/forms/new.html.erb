@@ -1,0 +1,31 @@
+<div class="container">
+  <h1 class="text-center">Estimation de votre indemnisation</h1>
+  <%= simple_form_for @form do |f| %>
+    <h2 class="mb-3">Veuillez indiquer le trajet du vol:</h2>
+    <div class="address_wrapper">
+      <%= f.input :address_departure, placeholder: 'Ville de depart', label: false, input_html: {class: 'address-box'}, error: 'Indiquez votre ville de départ svp' %>
+      <%= f.input :address_destination, placeholder: "Ville d'arrivee", label: false, input_html: {class: 'address-box'}, error: "Indiquez votre ville d'arrivée svp" %>
+    </div>
+    <h2 class="mb-3">Il s'agit d'un:</h2>
+    <%= f.input :genre,
+              as: :radio_buttons,
+              collection_wrapper_tag: 'div',
+              collection_wrapper_class: 'genre-wrapper',
+              item_wrapper_class: 'genre-item',
+              input_html: {class: 'genre-selector'},
+              label: false,
+              collection: Form::GENRES %>
+    <div id="retard" class="hidden">
+    </div>
+    <div id="annulation" class="hidden">
+    </div>
+    <div id="surbooking" class="hidden">
+    </div>
+    <div class="wrapper-valid hidden">
+      <%= f.button :submit, "Lancer l'estimation!",
+              class: 'button' %>
+    </div>
+  <% end %>
+
+</div>
+
